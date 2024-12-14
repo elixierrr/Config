@@ -1,0 +1,17 @@
+runtime: nodejs20
+env: standard
+
+handlers:
+  - url: /api/*
+    script: auto  # Meneruskan permintaan ke backend Node.js
+
+  - url: /static
+    static_dir: build/static/
+
+  - url: /favicon.ico
+    static_files: public/favicon.ico
+    upload: public/favicon.ico
+
+  - url: /.*
+    static_files: build/index.html
+    upload: build/index.html
